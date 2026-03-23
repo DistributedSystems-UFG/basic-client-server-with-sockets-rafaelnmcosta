@@ -2,7 +2,7 @@ from socket  import *
 from constCS import * #-
 
 s = socket(AF_INET, SOCK_STREAM) 
-s.bind((HOST, PORT))  #-
+s.bind(('0.0.0.0', PORT))  #-
 s.listen(1)           #-
 (conn, addr) = s.accept()  # returns new socket and addr. client 
 while True:                # forever
