@@ -1,5 +1,5 @@
-from socket  import *
-from constCS import * #-
+from socket import *
+from constCS import *
 
 def calcular(expressao):
     try:
@@ -29,17 +29,25 @@ def calcular(expressao):
         return "Erro"
 
 
-s = socket(AF_INET, SOCK_STREAM) 
-s.bind(('0.0.0.0', PORT))  #-
-s.listen(1)           #-
-(conn, addr) = s.accept()  # returns new socket and addr. client 
-while True:                # forever
-	data = conn.recv(1024)   # receive data from client
-	if not data: break       # stop if client stopped
-	mensagem = data.decode()
-    	print(f"Recebido: {mensagem}")
+s = socket(AF_INET, SOCK_STREAM)
+s.bind(('0.0.0.0', PORT))
+s.listen(1)
 
-    	resultado = calcular(mensagem)
+print("Servidor rodando...")
 
-    	conn.send(resultado.encode())
-conn.close()               # close the connection
+conn, addr = s.accept()
+print(f"Conectado por {addr}")
+
+while True:
+    data = conn.recv(1024)
+
+    if not data:
+        break
+
+    mensagem = data.decode()
+    print(f"Recebido: {mensagem}")
+
+    resultado = calcular(mensagem)
+    conn.send(resultado.encode())
+
+conn.close()
