@@ -1,10 +1,21 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7EVNAYx2)
 # ClientServerBasics (2.0)
-Starter code for the basic client-server assignment
 
+## calculadora implementada;
+O server fica aguardando conexões, quando um client se conecta, o server entra em um loop recebendo mensagens.
 
-Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste em acrescentar funcionalidade ao servidor para torná-lo mais útil. Essa funcionalidade deve ser acessível aos clientes. Por exemplo, o servidor pode ser uma espécie de calculadora remota. O cliente passa dois valores numéricos, juntamente com o nome de uma operação (ex.: add, subtract, multiply, divide) e o servidor executa a operação respectiva e retorna seu resultado para o cliente. Você pode implementar um servidor com outras funcionalidades (diferente da calculadora). O imporante é que ele ofereça pelo menos três operações diferentes que os clientes podem utilizar remotamente, passando dados para serem processados e recebendo o resultado desse processamento como resposta.
+O client envia uma expressão matemática no formato "numero operador numero" (COM O ESPAÇO):
+Ex:
+10 + 5
+7 * 3
+20 / 4  
+As operações suportadas são:
++ (adição)
+- (subtração)
+* (multiplicação)
+/ (divisão)
+(os valores são convertidos pra float)
 
-Tarefa individual.
+O server recebe a mensagem, calcula a operação e retorna o resultado para o client.
 
-Incluir um Readme descritivo do sistema implementado.
+O client imprime o resultado recebido do server no final.
